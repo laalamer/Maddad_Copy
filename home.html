@@ -6,36 +6,60 @@
   <title>مدد | الصفحة الرئيسية</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-main" onload="loadHomePage()">
-  <div class="bg-blur bg-blur-top"></div>
-  <div class="bg-blur bg-blur-bottom"></div>
+<body class="app-body" onload="loadHomePage()">
 
-  <div class="home-page">
-    <div class="top-bar">
-  <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
-</div>
-
-<div class="logo-center">
-  <img src="logo.png" class="top-logo" alt="شعار مدد" />
-</div>
-
-    <div class="home-card">
-      <h1 class="home-title" id="welcomeMessage">أهلًا ولي أمر الطفل</h1>
-      <p class="home-subtitle">
-        هنا يمكنك متابعة حالة طفلك والبدء في الاستبيان.
-      </p>
-
-      <div class="child-summary">
-        <h3>بيانات الطفل</h3>
-        <p><strong>اسم الطفل:</strong> <span id="childNameText">---</span></p>
-        <p><strong>الحساب:</strong> <span id="emailText">---</span></p>
+  <div class="app-frame">
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" onclick="logout()">⎋</button>
       </div>
 
-      <div class="home-actions">
-        <button class="main-btn big-btn" onclick="window.location.href='questionnaire.html'">
-          ابدأ الاستبيان الآن
-        </button>
+      <div class="topbar-center">
+        <span class="topbar-title">مساحة نمو</span>
       </div>
+
+      <div class="topbar-right">
+        <img src="logo.png" class="topbar-logo" alt="شعار مدد" />
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="dashboard-sidebar">
+        <button class="sidebar-menu-btn">☰</button>
+
+        <div class="sidebar-nav">
+          <button class="sidebar-item active">مساحة نمو</button>
+          <button class="sidebar-item">لوحة التقدم</button>
+          <button class="sidebar-item">الألعاب</button>
+          <button class="sidebar-item">الإعدادات</button>
+        </div>
+      </aside>
+
+      <main class="dashboard-main">
+        <section class="dashboard-card">
+          <div class="dashboard-header-row">
+            <button class="icon-btn small-dots">⋮</button>
+            <div>
+              <h1 class="dashboard-title" id="welcomeMessage">أهلًا ولي أمر الطفل</h1>
+              <p class="dashboard-subtitle">
+                هنا يمكنك متابعة حالة طفلك والبدء في الاستبيان.
+              </p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>بيانات الطفل</h3>
+            <p><strong>اسم الطفل:</strong> <span id="childNameText">---</span></p>
+            <p><strong>الحساب:</strong> <span id="emailText">---</span></p>
+          </div>
+
+          <div class="dashboard-actions">
+            <button class="primary-btn large-action" onclick="startQuestionnaire()">
+              ابدأ الاستبيان الآن
+            </button>
+          </div>
+        </section>
+      </main>
     </div>
   </div>
 
