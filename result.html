@@ -6,29 +6,47 @@
   <title>مدد | النتيجة</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-main" onload="loadResultPage()">
-  <div class="bg-blur bg-blur-top"></div>
-  <div class="bg-blur bg-blur-bottom"></div>
+<body class="app-body" onload="loadResultPage()">
 
-  <div class="result-page">
-    <div class="top-bar simple-top">
-      <button class="back-btn" onclick="goBackHome()">الرئيسية</button>
-      <img src="logo.png" class="logo top-logo centered-logo" alt="شعار مدد" />
-      <div class="top-space"></div>
-    </div>
-
-    <div class="result-card">
-      <div id="resultBadge" class="result-badge">نتيجة التقييم</div>
-      <h1 id="resultTitle" class="result-title">---</h1>
-      <p id="resultText" class="result-text">---</p>
-
-      <div class="result-summary" id="resultSummary"></div>
-
-      <div class="home-actions">
-        <button id="resultMainBtn" class="main-btn big-btn" onclick="handleResultMainAction()">
-          متابعة
-        </button>
+  <div class="app-frame">
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" onclick="goBackHome()">←</button>
       </div>
+
+      <div class="topbar-center">
+        <span class="topbar-title">نتيجة التقييم</span>
+      </div>
+
+      <div class="topbar-right">
+        <img src="logo.png" class="topbar-logo" alt="شعار مدد" />
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="dashboard-sidebar">
+        <button class="sidebar-menu-btn">☰</button>
+
+        <div class="sidebar-nav">
+          <button class="sidebar-item active">النتيجة</button>
+          <button class="sidebar-item" onclick="goBackHome()">مساحة نمو</button>
+          <button class="sidebar-item">لوحة التقدم</button>
+          <button class="sidebar-item">الألعاب</button>
+        </div>
+      </aside>
+
+      <main class="dashboard-main">
+        <section class="dashboard-card result-panel">
+          <div id="resultBadge" class="result-pill">نتيجة التقييم</div>
+          <h1 id="resultTitle" class="result-big-title">---</h1>
+          <p id="resultText" class="result-paragraph">---</p>
+          <div id="resultSummary" class="result-summary-box"></div>
+
+          <button id="resultMainBtn" class="primary-btn large-action" onclick="handleResultMainAction()">
+            متابعة
+          </button>
+        </section>
+      </main>
     </div>
   </div>
 
