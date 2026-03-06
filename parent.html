@@ -3,70 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مدد | تسجيل ولي الأمر</title>
+  <title>مدد | ولي الأمر</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-main">
-  <div class="bg-blur bg-blur-top"></div>
-  <div class="bg-blur bg-blur-bottom"></div>
+<body class="app-body">
 
-  <div class="auth-wrapper">
-    <div class="auth-card">
-      <div class="auth-header">
-        <img src="logo.png" class="logo small-logo" alt="شعار مدد" />
-        <h1 class="auth-title">ولي الأمر</h1>
-        <p class="auth-subtitle">سجّل الدخول أو أنشئ حسابًا جديدًا</p>
+  <div class="app-frame auth-frame">
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" onclick="window.location.href='index.html'">←</button>
       </div>
 
-      <!-- Login Form -->
-      <div id="loginBox">
-        <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input type="email" id="parentLoginEmail" placeholder="example@email.com" />
-        </div>
+      <div class="topbar-center">
+        <span class="topbar-title">تسجيل دخول ولي الأمر</span>
+      </div>
 
-        <div class="form-group">
-          <label>كلمة المرور</label>
-          <input type="password" id="parentLoginPassword" placeholder="********" />
-        </div>
+      <div class="topbar-right">
+        <img src="logo.png" class="topbar-logo" alt="شعار مدد" />
+      </div>
+    </header>
 
-        <button class="main-btn" onclick="parentLogin()">تسجيل الدخول</button>
-
-        <p class="switch-text">
-          ما عندك حساب؟
-          <span class="switch-link" onclick="showSignup()">إنشاء حساب</span>
+    <main class="auth-main">
+      <section class="auth-panel">
+        <h1 class="panel-title">هلا! سجّل دخولك لمتابعة طفلكم مع مدد</h1>
+        <p class="panel-text">
+          يمكنك تسجيل الدخول أو إنشاء حساب جديد للبدء.
         </p>
-      </div>
 
-      <!-- Signup Form -->
-      <div id="signupBox" style="display:none;">
-        <div class="form-group">
-          <label>اسم الطفل</label>
-          <input type="text" id="signupChildName" placeholder="مثال: لمى" />
+        <!-- Login -->
+        <div id="loginBox">
+          <div class="field-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" id="parentLoginEmail" placeholder="example@email.com" />
+          </div>
+
+          <div class="field-group">
+            <label>كلمة المرور</label>
+            <input type="password" id="parentLoginPassword" placeholder="********" />
+          </div>
+
+          <button class="primary-btn" onclick="parentLogin()">تسجيل الدخول</button>
+
+          <p class="switch-line">
+            ما عندك حساب؟
+            <span class="switch-link" onclick="showSignup()">إنشاء حساب</span>
+          </p>
         </div>
 
-        <div class="form-group">
-          <label>البريد الإلكتروني</label>
-          <input type="email" id="signupEmail" placeholder="example@email.com" />
+        <!-- Signup -->
+        <div id="signupBox" style="display:none;">
+          <div class="field-group">
+            <label>اسم الطفل</label>
+            <input type="text" id="signupChildName" placeholder="مثال: لمى" />
+          </div>
+
+          <div class="field-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" id="signupEmail" placeholder="example@email.com" />
+          </div>
+
+          <div class="field-group">
+            <label>كلمة المرور</label>
+            <input type="password" id="signupPassword" placeholder="********" />
+          </div>
+
+          <button class="primary-btn" onclick="parentSignup()">إنشاء الحساب</button>
+
+          <p class="switch-line">
+            عندك حساب؟
+            <span class="switch-link" onclick="showLogin()">تسجيل الدخول</span>
+          </p>
         </div>
-
-        <div class="form-group">
-          <label>كلمة المرور</label>
-          <input type="password" id="signupPassword" placeholder="********" />
-        </div>
-
-        <button class="main-btn" onclick="parentSignup()">إنشاء الحساب</button>
-
-        <p class="switch-text">
-          عندك حساب؟
-          <span class="switch-link" onclick="showLogin()">تسجيل الدخول</span>
-        </p>
-      </div>
-
-      <div class="back-link-wrap">
-        <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 
   <script src="script.js"></script>
