@@ -6,6 +6,10 @@ function goChild() {
   window.location.href = "child.html";
 }
 
+/* =========================
+   AUTH
+========================= */
+
 function showSignup() {
   document.getElementById("loginBox").style.display = "none";
   document.getElementById("signupBox").style.display = "block";
@@ -26,11 +30,7 @@ function parentSignup() {
     return;
   }
 
-  const account = {
-    childName: childName,
-    email: email,
-    password: password
-  };
+  const account = { childName, email, password };
 
   localStorage.setItem("maddadAccount", JSON.stringify(account));
   localStorage.setItem("maddadLoggedIn", "true");
@@ -41,7 +41,6 @@ function parentSignup() {
 function parentLogin() {
   const email = document.getElementById("parentLoginEmail").value.trim();
   const password = document.getElementById("parentLoginPassword").value.trim();
-
   const savedAccount = JSON.parse(localStorage.getItem("maddadAccount"));
 
   if (!email || !password) {
@@ -65,7 +64,6 @@ function parentLogin() {
 function childLogin() {
   const email = document.getElementById("childLoginEmail").value.trim();
   const password = document.getElementById("childLoginPassword").value.trim();
-
   const savedAccount = JSON.parse(localStorage.getItem("maddadAccount"));
 
   if (!email || !password) {
@@ -79,13 +77,20 @@ function childLogin() {
   }
 
   if (email === savedAccount.email && password === savedAccount.password) {
-    alert("تم تسجيل الدخول بنجاح. لاحقًا بنربطها بصفحة الألعاب");
-    // لاحقًا:
-    // window.location.href = "games.html";
+    alert("تم تسجيل الدخول بنجاح. لاحقًا سنربط صفحة الألعاب");
   } else {
     alert("بيانات الدخول غير صحيحة");
   }
 }
+
+function logout() {
+  localStorage.removeItem("maddadLoggedIn");
+  window.location.href = "index.html";
+}
+
+/* =========================
+   HOME
+========================= */
 
 function loadHomePage() {
   const loggedIn = localStorage.getItem("maddadLoggedIn");
@@ -113,22 +118,17 @@ function loadHomePage() {
   }
 }
 
-function logout() {
-  localStorage.removeItem("maddadLoggedIn");
-  window.location.href = "index.html";
-}
-
 function startQuestionnaire() {
   window.location.href = "questionnaire.html";
 }
 
-/* =========================
-   HELPERS
-========================= */
-
 function goBackHome() {
   window.location.href = "home.html";
 }
+
+/* =========================
+   ASSESSMENT HELPERS
+========================= */
 
 function getAssessment() {
   return JSON.parse(localStorage.getItem("maddadAssessment")) || null;
@@ -150,19 +150,6 @@ const skillKeys = [
   "play_skills",
   "response_to_commands"
 ];
-
-const skillLabelsArabic = {
-  response_to_name: "الاستجابة للاسم",
-  eye_contact: "التواصل البصري",
-  social_smile: "الابتسامة الاجتماعية",
-  imitation: "التقليد",
-  discrimination: "التمييز",
-  pointing_with_finger: "الإشارة بالإصبع",
-  facial_expressions: "تعابير الوجه",
-  joint_attention: "الانتباه المشترك",
-  play_skills: "مهارات اللعب",
-  response_to_commands: "تنفيذ الأوامر"
-};
 
 function calculateScore(answersObj) {
   let score = 0;
@@ -211,7 +198,7 @@ function getFailedSkills(answersObj) {
 }
 
 /* =========================
-   QUESTIONNAIRE PAGE
+   QUESTIONNAIRE
 ========================= */
 
 function loadQuestionnairePage() {
@@ -271,7 +258,7 @@ function submitQuestionnaire(event) {
 }
 
 /* =========================
-   RESULT PAGE
+   RESULT
 ========================= */
 
 function loadResultPage() {
@@ -347,7 +334,7 @@ function handleResultMainAction() {
 }
 
 /* =========================
-   FOLLOWUP PAGE
+   FOLLOWUP
 ========================= */
 
 function loadFollowupPage() {
