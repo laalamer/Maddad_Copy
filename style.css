@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;800&display=swap');
 
 *{
   margin:0;
@@ -7,7 +7,7 @@
 }
 
 body{
-  font-family:'Tajawal', sans-serif;
+  font-family:'Cairo', sans-serif;
   color:#2f3443;
 }
 
@@ -347,6 +347,7 @@ body{
   border-radius:36px;
   padding:34px 34px 40px;
   box-shadow:0 8px 24px rgba(56,66,92,0.05);
+  text-align:right;
 }
 
 .dashboard-header-row{
@@ -358,18 +359,19 @@ body{
 }
 
 .dashboard-title{
-  font-size:58px;
+  font-size:40px;
   font-weight:800;
   color:#22222b;
-  margin-bottom:12px;
+  margin-bottom:10px;
+  text-align:right;
 }
 
 .dashboard-subtitle{
-  font-size:28px;
+  font-size:20px;
   color:#6a7182;
-  line-height:1.8;
+  line-height:1.9;
+  text-align:right;
 }
-
 .info-card{
   background:#f7f8fc;
   border-radius:28px;
@@ -377,17 +379,20 @@ body{
   margin-top:24px;
   margin-bottom:34px;
   min-height:210px;
+  text-align:right;
 }
 
 .info-card h3{
-  font-size:36px;
+  font-size:30px;
   margin-bottom:18px;
+  color:#2f3443;
 }
 
 .info-card p{
-  font-size:26px;
+  font-size:20px;
   color:#5c6477;
   margin-bottom:12px;
+  line-height:1.8;
 }
 
 .dashboard-actions{
