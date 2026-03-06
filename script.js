@@ -95,6 +95,7 @@ function logout() {
 function loadHomePage() {
   const loggedIn = localStorage.getItem("maddadLoggedIn");
   const savedAccount = JSON.parse(localStorage.getItem("maddadAccount"));
+  const assessment = JSON.parse(localStorage.getItem("maddadAssessment"));
 
   if (loggedIn !== "true" || !savedAccount) {
     window.location.href = "parent.html";
@@ -104,6 +105,8 @@ function loadHomePage() {
   const welcomeMessage = document.getElementById("welcomeMessage");
   const childNameText = document.getElementById("childNameText");
   const emailText = document.getElementById("emailText");
+  const lastTestDateText = document.getElementById("lastTestDateText");
+  const lastLevelText = document.getElementById("lastLevelText");
 
   if (welcomeMessage) {
     welcomeMessage.textContent = "أهلًا ولي أمر " + savedAccount.childName;
@@ -115,6 +118,30 @@ function loadHomePage() {
 
   if (emailText) {
     emailText.textContent = savedAccount.email;
+  }
+
+  if (assessment) {
+    const risk = assessment.followupComplete ? assessment.finalRisk : assessment.initialRisk;
+
+    let riskArabic = "لا يوجد";
+    if (risk === "low") riskArabic = "منخفض";
+    else if (risk === "medium") riskArabic = "متوسط";
+    else if (risk === "high") riskArabic = "مرتفع";
+
+    if (lastLevelText) {
+      lastLevelText.textContent = riskArabic;
+    }
+
+    if (lastTestDateText) {
+      if (assessment.testDate) {
+        lastTestDateText.textContent = assessment.testDate;
+      } else {
+        lastTestDateText.textContent = "تم إجراء الاختبار";
+      }
+    }
+  } else {
+    if (lastLevelText) lastLevelText.textContent = "لا يوجد";
+    if (lastTestDateText) lastTestDateText.textContent = "لم يتم بعد";
   }
 }
 
@@ -253,6 +280,9 @@ function submitQuestionnaire(event) {
     finalRisk: initialRisk
   };
 
+  const today = new Date();
+  const formattedDate = today.toLocaleDateString('ar-EG');
+  assessment.testDate = formattedDate;
   saveAssessment(assessment);
   window.location.href = "result.html";
 }
