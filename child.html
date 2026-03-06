@@ -6,34 +6,43 @@
   <title>مدد | دخول الطفل</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-main">
-  <div class="bg-blur bg-blur-top"></div>
-  <div class="bg-blur bg-blur-bottom"></div>
+<body class="app-body">
 
-  <div class="auth-wrapper">
-    <div class="auth-card">
-      <div class="auth-header">
-        <img src="logo.png" class="logo small-logo" alt="شعار مدد" />
-        <h1 class="auth-title">دخول الطفل</h1>
-        <p class="auth-subtitle">سجّل الدخول للانتقال إلى صفحة الألعاب</p>
+  <div class="app-frame auth-frame">
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" onclick="window.location.href='index.html'">←</button>
       </div>
 
-      <div class="form-group">
-        <label>البريد الإلكتروني</label>
-        <input type="email" id="childLoginEmail" placeholder="example@email.com" />
+      <div class="topbar-center">
+        <span class="topbar-title">دخول الطفل</span>
       </div>
 
-      <div class="form-group">
-        <label>كلمة المرور</label>
-        <input type="password" id="childLoginPassword" placeholder="********" />
+      <div class="topbar-right">
+        <img src="logo.png" class="topbar-logo" alt="شعار مدد" />
       </div>
+    </header>
 
-      <button class="main-btn" onclick="childLogin()">دخول الطفل</button>
+    <main class="auth-main">
+      <section class="auth-panel">
+        <h1 class="panel-title">مرحبًا! سجّل دخول الطفل</h1>
+        <p class="panel-text">
+          بعد الدخول سيتم الانتقال إلى صفحة الألعاب.
+        </p>
 
-      <div class="back-link-wrap">
-        <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
-      </div>
-    </div>
+        <div class="field-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" id="childLoginEmail" placeholder="example@email.com" />
+        </div>
+
+        <div class="field-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="childLoginPassword" placeholder="********" />
+        </div>
+
+        <button class="primary-btn" onclick="childLogin()">دخول الطفل</button>
+      </section>
+    </main>
   </div>
 
   <script src="script.js"></script>
