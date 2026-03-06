@@ -6,28 +6,54 @@
   <title>مدد | أسئلة المتابعة</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-main" onload="loadFollowupPage()">
-  <div class="bg-blur bg-blur-top"></div>
-  <div class="bg-blur bg-blur-bottom"></div>
+<body class="app-body" onload="loadFollowupPage()">
 
-  <div class="form-page">
-    <div class="top-bar simple-top">
-      <button class="back-btn" onclick="window.location.href='result.html'">العودة</button>
-      <img src="logo.png" class="logo top-logo centered-logo" alt="شعار مدد" />
-      <div class="top-space"></div>
-    </div>
+  <div class="app-frame">
+    <header class="app-topbar">
+      <div class="topbar-left">
+        <button class="icon-btn" onclick="window.location.href='result.html'">←</button>
+      </div>
 
-    <div class="auth-card questionnaire-card">
-      <h1 class="auth-title">أسئلة المتابعة</h1>
-      <p class="auth-subtitle">
-        نحتاج بعض التفاصيل الإضافية لتحسين دقة النتيجة.
-      </p>
+      <div class="topbar-center">
+        <span class="topbar-title">أسئلة المتابعة</span>
+      </div>
 
-      <form id="followupForm" onsubmit="submitFollowup(event)">
-        <div id="followupContainer"></div>
-        <p id="followupError" class="form-error"></p>
-        <button type="submit" class="main-btn full-btn">إعادة التقييم</button>
-      </form>
+      <div class="topbar-right">
+        <img src="logo.png" class="topbar-logo" alt="شعار مدد" />
+      </div>
+    </header>
+
+    <div class="dashboard-layout">
+      <aside class="dashboard-sidebar">
+        <button class="sidebar-menu-btn">☰</button>
+
+        <div class="sidebar-nav">
+          <button class="sidebar-item active">أسئلة المتابعة</button>
+          <button class="sidebar-item" onclick="goBackHome()">مساحة نمو</button>
+          <button class="sidebar-item">لوحة التقدم</button>
+          <button class="sidebar-item">الألعاب</button>
+        </div>
+      </aside>
+
+      <main class="dashboard-main">
+        <section class="dashboard-card form-card">
+          <div class="dashboard-header-row">
+            <button class="icon-btn small-dots">⋮</button>
+            <div>
+              <h1 class="dashboard-title">أسئلة المتابعة</h1>
+              <p class="dashboard-subtitle">
+                نحتاج بعض التفاصيل الإضافية لتحسين دقة النتيجة.
+              </p>
+            </div>
+          </div>
+
+          <form id="followupForm" onsubmit="submitFollowup(event)">
+            <div id="followupContainer"></div>
+            <p id="followupError" class="form-error"></p>
+            <button type="submit" class="primary-btn large-action full-width-btn">إعادة التقييم</button>
+          </form>
+        </section>
+      </main>
     </div>
   </div>
 
